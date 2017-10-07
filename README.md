@@ -1,26 +1,24 @@
-Master Retailer Database, Mobile App
+FDA Inspections, Flex Version
 ====================================
 
     composer install
     bin/load-data
-    bin/console server:start 0.0.0.0:8000
+    bin/console server:start
+
+By default, everything is stored in SQLite.
+
+EasyAdmin is available at /admin
+
     
 
 
 1) Setting up / updating local environment 
 ----------------------------------
 
-These should run in screen or somewhere:
-
-    while sleep 5; do bin/console fda:export --no-debug; done
-    while sleep 5; do bion/console fda:scrape --scrape 50000 --extract 200 --no-debug; done
-    bin/console fda:import-raw --limit 0 --no-debug
-
-
 install Nodejs (http://nodejs.org/download)
 
 The first time, in terminal run:
-`sudo npm install -g grunt-cli`  
+`npm install -g grunt-cli`  
 
 `gem install compass`
 
@@ -34,24 +32,6 @@ after this:
 
 after pulling/changing `npm install && grunt` is needed, although `grunt` alone should be enough as package.json changes very rarely
 
-Data
-====
-
-First, go to http://www.accessdata.fda.gov/scripts/oce/inspections/oce_insp_searching.cfm and download each fiscal year data 
-by clicking on *Excel Icon Export Data to Excel by Fiscal Year*
-
-    bin/console fda:load-fiscal-years
-    bin/console fda:import-raw 10  --limit 30 --verbose --warnings-only
-    bin/console fda:scrape --scrape 9999 --extract 9999 
-
-2) Styles
----------
-
-Sass styles are in `src/Appsources/scss` folder and are compiled with compass in grunt
-
-`grunt styles` command will compile styles and poll for changes (finish with ctrl+c)
-
-----
  
 
 

@@ -12,9 +12,10 @@ class DefaultController extends Controller
 
     /**
     * @Route("/", name="home")
-    * @Route("/x", name="homex")
     */
     public function homeAction(Request $request) {
-        return new Response("<html><body>Hello, world!</body></html>");
+        return $this->render('home.html.twig', [
+            'database' => $this->container->getParameter('db_url'),
+        ]);
     }
 }

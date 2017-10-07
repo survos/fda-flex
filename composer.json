@@ -3,6 +3,7 @@
     "license": "proprietary",
     "require": {
         "php": "^7.1",
+        "api-platform/api-pack": "^1.0",
         "javiereguiluz/easyadmin-bundle": "^1.17",
         "sensio/framework-extra-bundle": "^4.0",
         "sensio/generator-bundle": "^3.1",

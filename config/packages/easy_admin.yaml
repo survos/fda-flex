@@ -10,3 +10,5 @@ easy_admin:
             class: App\Entity\Statute
       User:
             class: App\Entity\User
+      Retailer:
+            class: App\Entity\Retailer

@@ -12,3 +12,6 @@ framework:
     #fragments: ~
     php_errors:
         log: true
+
+parameters:
+    db_url: '%env(DATABASE_URL)%'

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Entity;
+use ApiPlatform\Core\Annotation\ApiResource;
 
 # use CrEOF\Spatial\PHP\Types\Geometry\Point;
 use Doctrine\ORM\Mapping as ORM;
@@ -8,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * RawInspection
  *
+ * @ApiResource
  * @ORM\Table(name="raw_inspection")
  * @ORM\Entity(repositoryClass="RawInspectionRepository")
  */
