@@ -133,7 +133,7 @@ class LoadFiscalYearsCommand extends ContainerAwareCommand
                 }
                 $lc++;
 
-                $decisionType = $inspection['DecisionType'];
+                $decisionType = $inspection['InspectionResult'];
                 $stats[$decisionType] = empty($stats[$decisionType]) ? 1 : $stats[$decisionType] + 1;
 
                 if ($decisionType != 'No Violations Observed') {

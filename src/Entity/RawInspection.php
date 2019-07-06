@@ -415,6 +415,21 @@ class RawInspection
     private $violationHistory;
 
     /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $ProductType;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Brand;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $Charges;
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -750,7 +765,7 @@ class RawInspection
      * @param string $decisionType
      * @return RawInspection
      */
-    public function setDecisionType($decisionType)
+    public function setInspectionResult($decisionType)
     {
         $this->decisionType = $decisionType;
         if ($this->decisionType) {
@@ -765,7 +780,7 @@ class RawInspection
      *
      * @return string
      */
-    public function getDecisionType()
+    public function getInspectionResult()
     {
         return $this->decisionType;
     }
@@ -779,7 +794,11 @@ class RawInspection
     public function setDecisionDate($decisionDate)
     {
         if (is_string($decisionDate)) {
-            $decisionDate = $decisionDate ? new \DateTime($decisionDate) : null;
+            try {
+                $decisionDate = $decisionDate ? new \DateTime($decisionDate) : null;
+            } catch (\Exception $e) {
+                $decisionDate = null;
+            }
         }
         $this->decisionDate = $decisionDate;
 
@@ -804,6 +823,13 @@ class RawInspection
      */
     public function setInspectionDate($inspectionDate)
     {
+        if (is_string($inspectionDate)) {
+            try {
+                $inspectionDate = $inspectionDate ? new \DateTime($inspectionDate) : null;
+            } catch (\Exception $e) {
+                $inspectionDate = null;
+            }
+        }
         $this->inspectionDate = $inspectionDate;
 
         return $this;
@@ -1880,5 +1906,41 @@ class RawInspection
     public function getHtmlLength()
     {
         return strlen($this->getWarningHtml());
+    }
+
+    public function getProductType(): ?string
+    {
+        return $this->ProductType;
+    }
+
+    public function setProductType(?string $ProductType): self
+    {
+        $this->ProductType = $ProductType;
+
+        return $this;
+    }
+
+    public function getBrand(): ?string
+    {
+        return $this->Brand;
+    }
+
+    public function setBrand(string $Brand): self
+    {
+        $this->Brand = $Brand;
+
+        return $this;
+    }
+
+    public function getCharges(): ?string
+    {
+        return $this->Charges;
+    }
+
+    public function setCharges(?string $Charges): self
+    {
+        $this->Charges = $Charges;
+
+        return $this;
     }
 }

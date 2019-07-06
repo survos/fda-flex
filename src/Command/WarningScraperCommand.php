@@ -105,8 +105,6 @@ class WarningScraperCommand extends ContainerAwareCommand
         // $cache = new HttpCache("fda_letters.db3");
 
 
-
-
         $progress = new ProgressBar($output, count($warnings));
 //        $progress->setFormat(" %message%\n %step%/%max%\n Working on %url%");
         $progress->setFormat(' %current%/%max% [%bar%] %percent:3s%% %elapsed:6s%/%estimated:-6s% %memory:6s%');
